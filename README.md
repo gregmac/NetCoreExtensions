@@ -5,13 +5,17 @@ A set of extensions to make working with some of the base class libraries easier
 
 ## Strings
 
-| `using NetCoreExtensions.Strings` | Equivalent to                         |
-| --------------------------------- | ------------------------------------- |
-| `value.IsNullOrEmpty()`           | `string.IsNullOrEmpty(value)`         |
-| `value.IsNotNullOrEmpty()`        | `!string.IsNullOrEmpty(value)`        |
-| `value.IsNullOrWhitespace()`      | `string.IsNullOrWhitespace(value)`    |
-| `value.IsNotNullOrWhitespace()`   | `!string.IsNullOrWhitespace(value)`   |
-| `values.Join(separator)`          | `string.Join(separator, values)`      |
+| `using NetCoreExtensions.Strings`                 | Equivalent to                                               |
+| ------------------------------------------------- | ----------------------------------------------------------- |
+| `value.IsNullOrEmpty()`                           | `string.IsNullOrEmpty(value)`                               |
+| `value.IsNotNullOrEmpty()`                        | `!string.IsNullOrEmpty(value)`                              |
+| `value.IsNullOrWhitespace()`                      | `string.IsNullOrWhitespace(value)`                          |
+| `value.IsNotNullOrWhitespace()`                   | `!string.IsNullOrWhitespace(value)`                         |
+| `values.Join(separator)`                          | `string.Join(separator, values)`                            |
+| `value.DefaultIfNullOrEmpty(defaultValue)`        | `string.IsNullOrEmpty(value) ? defaultValue : value`        |
+| `value.DefaultIfNullOrEmpty(callback)`            | `string.IsNullOrEmpty(value) ? callback() : value`          |
+| `value.DefaultIfNullOrWhitespace(defaultValue)`   | `string.IsNullOrWhitespace(value) ? defaultValue : value`   |
+| `value.DefaultIfNullOrWhitespace(callback)`       | `string.IsNullOrWhitespace(value) ? callback() : value`     |
 
 ## Regular Expressions
 
