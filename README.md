@@ -5,7 +5,7 @@ A set of extensions to make working with some of the base class libraries easier
 
 ## Strings
 
-| With Extension                    | Equivalent to                         |
+| `using NetCoreExtensions.Strings` | Equivalent to                         |
 | --------------------------------- | ------------------------------------- |
 | `value.IsNullOrEmpty()`           | `string.IsNullOrEmpty(value)`         |
 | `value.IsNotNullOrEmpty()`        | `!string.IsNullOrEmpty(value)`        |
@@ -14,7 +14,7 @@ A set of extensions to make working with some of the base class libraries easier
 
 ## Regular Expressions
 
-| With Extension                                                  | Equivalent to                                                          |
+| `using NetCoreExtensions.Regex`                                 | Equivalent to                                                          |
 | --------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `value.Match(pattern)`                                          | `Regex.Match(value, pattern)`                                          |
 | `value.Match(pattern,options)`                                  | `Regex.Match(value, pattern,options)`                                  |
