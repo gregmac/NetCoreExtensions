@@ -28,6 +28,13 @@ namespace NetCoreExtensions.Tests
             Assert.Equal(testValue.IsNullOrWhiteSpace(), expected);
             Assert.Equal(testValue.IsNotNullOrWhiteSpace(), !expected);
         }
+
+        [Fact]
+        public void Join()
+        {
+            Assert.Equal("42,43,44", new[] {42, 43, 44}.Join(","));
+            Assert.Equal("a**b**c", new[] {"a", "b", "c"}.Join("**"));
+        }
         
     }
 }

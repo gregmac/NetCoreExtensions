@@ -11,6 +11,7 @@ A set of extensions to make working with some of the base class libraries easier
 | `value.IsNotNullOrEmpty()`        | `!string.IsNullOrEmpty(value)`        |
 | `value.IsNullOrWhitespace()`      | `string.IsNullOrWhitespace(value)`    |
 | `value.IsNotNullOrWhitespace()`   | `!string.IsNullOrWhitespace(value)`   |
+| `values.Join(separator)`          | `string.Join(separator, values)`      |
 
 ## Regular Expressions
 
