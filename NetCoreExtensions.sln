@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreExtensions", "NetCoreExtensions\NetCoreExtensions.csproj", "{1A690D50-0D23-4B51-98ED-CA8828D79DCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreExtensions.Tests", "NetCoreExtensions.Tests\NetCoreExtensions.Tests.csproj", "{B5590DC3-B626-4830-A36E-CF821BF44529}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A690D50-0D23-4B51-98ED-CA8828D79DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A690D50-0D23-4B51-98ED-CA8828D79DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A690D50-0D23-4B51-98ED-CA8828D79DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A690D50-0D23-4B51-98ED-CA8828D79DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5590DC3-B626-4830-A36E-CF821BF44529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5590DC3-B626-4830-A36E-CF821BF44529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5590DC3-B626-4830-A36E-CF821BF44529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5590DC3-B626-4830-A36E-CF821BF44529}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
