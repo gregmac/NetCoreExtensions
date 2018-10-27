@@ -41,6 +41,9 @@ A set of extensions to make working with some of the base class libraries easier
 | `42.Days()`                       | `TimeSpan.FromDays(45)`               |
 | `42.Ticks()`                      | `TimeSpan.FromTicks(45)`              |
 
+ * `TimeSpan.From` aliases work with `int`, `long` or `double`.
+
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).
