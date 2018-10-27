@@ -22,6 +22,13 @@ A set of extensions to make working with some of the base class libraries easier
 | `if (value.TryMatch(pattern, options, out var match)) { .. }`   | `var match = Regex.Match(value,pattern, options); if (match) { .. }`   |
 | `foreach (var match in value.Matches(pattern)) { .. } `         | `foreach (Match match in Regex.Matches(value, pattern)) { .. } `       |
 
+## Hashing
+
+`using NetCoreExtensions.Security`
+
+* `Sha1()`, `Sha256()`, `Sha384()`, `Sha512()` methods for `string` and `byte[]`
+* Return unix-style checksums, eg: `"b444ac06613fc8d63795be9ad0beaf55011936ac"`
+* Defaults to `Encoding.UTF8` but can be overridden
 
 ## License
 
