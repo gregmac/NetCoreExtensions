@@ -30,6 +30,17 @@ A set of extensions to make working with some of the base class libraries easier
 * Return unix-style checksums, eg: `"b444ac06613fc8d63795be9ad0beaf55011936ac"`
 * Defaults to `Encoding.UTF8` but can be overridden
 
+## Date/Time
+
+| `using NetCoreExtensions.Regex`   | Equivalent to                         |
+| --------------------------------- | ------------------------------------- |
+| `42.Milliseconds()`               | `TimeSpan.FromMilliseconds(45)`       |
+| `42.Seconds()`                    | `TimeSpan.FromSeconds(45)`            |
+| `42.Minutes()`                    | `TimeSpan.FromMinutes(45)`            |
+| `42.Hours()`                      | `TimeSpan.FromHours(45)`              |
+| `42.Days()`                       | `TimeSpan.FromDays(45)`               |
+| `42.Ticks()`                      | `TimeSpan.FromTicks(45)`              |
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).
