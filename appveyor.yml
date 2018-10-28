@@ -1,0 +1,23 @@
+version: 0.0.{build}
+image: Visual Studio 2017
+
+configuration: Release
+
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+
+before_build:
+  - cmd: dotnet restore
+
+build_script:
+  - cmd: dotnet build --configuration %CONFIGURATION%
+  - cmd: dotnet pack NetCoreExtensions --configuration %CONFIGURATION%
+  
+artifacts:
+  - path: NetCoreExtensions\bin\%CONFIGURATION%\*.nupkg
