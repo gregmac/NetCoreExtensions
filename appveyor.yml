@@ -19,5 +19,8 @@ build_script:
   - cmd: dotnet build --configuration %CONFIGURATION%
   - cmd: dotnet pack NetCoreExtensions --configuration %CONFIGURATION%
   
+test_script:
+  - cmd: cd NetCoreExtensions.Tests & dotnet xunit
+
 artifacts:
   - path: NetCoreExtensions\bin\%CONFIGURATION%\*.nupkg
