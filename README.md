@@ -2,6 +2,8 @@
 
 A set of extensions to make working with some of the base class libraries easier.
 
+[![Build status](https://ci.appveyor.com/api/projects/status/gxfnvkayfbrmllt0/branch/master?svg=true)](https://ci.appveyor.com/project/gregmac/netcoreextensions/branch/master) [![NuGet](https://img.shields.io/nuget/v/NetCoreExtensions.svg?maxAge=3600)](https://www.nuget.org/packages/NetCoreExtensions/)
+
 
 ## Strings
 
