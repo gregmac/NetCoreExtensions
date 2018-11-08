@@ -19,10 +19,10 @@ A set of extensions to make working with some of the base class libraries easier
 
 ### Whitespace/Empty defaults
 
-* `value.DefaultIfNullOrEmpty(defaultValue)`     
-* `value.DefaultIfNullOrEmpty(callback)`         
-* `value.DefaultIfNullOrWhitespace(defaultValue)`
-* `value.DefaultIfNullOrWhitespace(callback)`    
+* `value.EmptyToNull()`
+* `value.WhiteSpaceToNull()`
+
+Example: `(" ".WhiteSpaceToNull() ?? "default") == "default"`
 
 ## Regular Expressions
 

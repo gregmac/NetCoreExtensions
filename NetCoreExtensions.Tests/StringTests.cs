@@ -39,64 +39,27 @@ namespace NetCoreExtensions.Tests
         }
 
         [Theory]
-        [InlineData("abc", "default", false)]
-        [InlineData(" ", "default", false)]
-        [InlineData("", "default", true)]
-        [InlineData(null, "default", true)]
-        public void DefaultIfNullOrEmpty_string(string input, string defaultValue, bool expectedDefault)
+        [InlineData("abc", false)]
+        [InlineData("   ", false)]
+        [InlineData(" ", false)]
+        [InlineData("", true)]
+        [InlineData(null, true)]
+        public void EmptyToNull(string input, bool expectedNull)
         {
-            input.DefaultIfNullOrEmpty(defaultValue)
-                .ShouldBe(expectedDefault ? defaultValue : input);
-        }
-        
-        [Theory]
-        [InlineData("abc", "default", false)]
-        [InlineData(" ", "default", false)]
-        [InlineData("", "default", true)]
-        [InlineData(null, "default", true)]
-        public void DefaultIfNullOrEmpty_callback(string input, string defaultValue, bool expectedDefault)
-        {
-            var callbackCalled = false;
-            input
-                .DefaultIfNullOrEmpty(() =>
-                {
-                    callbackCalled = true;
-                    return defaultValue;
-                })
-                .ShouldBe(expectedDefault ? defaultValue : input);
-            // if default is expected, callback should have been invoked
-            callbackCalled.ShouldBe(expectedDefault);
-        }
-
-
-        [Theory]
-        [InlineData("abc", "default", false)]
-        [InlineData(" ", "default", true)]
-        [InlineData("", "default", true)]
-        [InlineData(null, "default", true)]
-        public void DefaultIfNullOrWhitespace_string(string input, string defaultValue, bool expectedDefault)
-        {
-            input.DefaultIfNullOrWhitespace(defaultValue)
-                .ShouldBe(expectedDefault ? defaultValue : input);
+            input.EmptyToNull()
+                .ShouldBe(expectedNull ? null : input);
         }
 
         [Theory]
-        [InlineData("abc", "default", false)]
-        [InlineData(" ", "default", true)]
-        [InlineData("", "default", true)]
-        [InlineData(null, "default", true)]
-        public void DefaultIfNullOrWhitespace_callback(string input, string defaultValue, bool expectedDefault)
+        [InlineData("abc", false)]
+        [InlineData("   ", true)]
+        [InlineData(" ", true)]
+        [InlineData("", true)]
+        [InlineData(null, true)]
+        public void WhiteSpaceToNull(string input, bool expectedNull)
         {
-            var callbackCalled = false;
-            input
-                .DefaultIfNullOrWhitespace(() =>
-                {
-                    callbackCalled = true;
-                    return defaultValue;
-                })
-                .ShouldBe(expectedDefault ? defaultValue : input);
-            // if default is expected, callback should have been invoked
-            callbackCalled.ShouldBe(expectedDefault);
+            input.WhiteSpaceToNull()
+                .ShouldBe(expectedNull ? null : input);
         }
 
     }

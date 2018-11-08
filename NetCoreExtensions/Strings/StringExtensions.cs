@@ -55,44 +55,31 @@ namespace NetCoreExtensions.Strings
         public static string Join<T>(this IEnumerable<T> values, string separator) => string.Join(separator, values);
 
         /// <summary>
-        /// Returns a default value is the string is null or empty.
-        /// Equivalent to <code>string.IsNullOrEmpty(value) ? defaultValue : value</code>
+        /// Returns null if a string is empty, otherwise returns the original string.
+        /// 
+        /// Allows easily assigning default values for empty strings, eg:
+        /// <code>
+        /// myvalue.EmptyToNull() ?? "default"
+        /// </code>
         /// </summary>
         /// <param name="value">The value to test</param>
-        /// <param name="defaultValue">The default value, if empty</param>
         /// <returns></returns>
-        public static string DefaultIfNullOrEmpty(this string value, string defaultValue)
-            => string.IsNullOrEmpty(value) ? defaultValue : value;
-        
+        public static string EmptyToNull(this string value)
+            => string.IsNullOrEmpty(value) ? null : value;
+
         /// <summary>
-        /// Returns a default value (obtained via callback) is the string is null or empty.
-        /// Equivalent to <code>string.IsNullOrEmpty(value) ? defaultValue() : value</code>
+        /// Returns null if a string is whitespace, otherwise returns the original string.
+        /// 
+        /// Allows easily assigning default values for empty strings, eg:
+        /// <code>
+        /// myvalue.WhitespaceToNull() ?? "default"
+        /// </code>
         /// </summary>
         /// <param name="value">The value to test</param>
-        /// <param name="defaultValueCallback">The method to get the default value, if empty</param>
         /// <returns></returns>
-        public static string DefaultIfNullOrEmpty(this string value, Func<string> defaultValueCallback)
-            => string.IsNullOrEmpty(value) ? defaultValueCallback.Invoke() : value;
-        
-        /// <summary>
-        /// Returns a default value is the string is null or whitespace.
-        /// Equivalent to <code>string.IsNullOrWhitespace(value) ? defaultValue : value</code>
-        /// </summary>
-        /// <param name="value">The value to test</param>
-        /// <param name="defaultValue">The default value, if empty</param>
-        /// <returns></returns>
-        public static string DefaultIfNullOrWhitespace(this string value, string defaultValue)
-            => string.IsNullOrWhiteSpace(value) ? defaultValue : value;
-    
-        /// <summary>
-        /// Returns a default value (obtained via callback) is the string is null or empty.
-        /// Equivalent to <code>string.IsNullOrWhitespace(value) ? defaultValue() : value</code>
-        /// </summary>
-        /// <param name="value">The value to test</param>
-        /// <param name="defaultValueCallback">The method to get the default value, if empty</param>
-        /// <returns></returns>
-        public static string DefaultIfNullOrWhitespace(this string value, Func<string> defaultValueCallback)
-            => string.IsNullOrWhiteSpace(value) ? defaultValueCallback.Invoke() : value;
-        
+        public static string WhiteSpaceToNull(this string value)
+            => string.IsNullOrWhiteSpace(value) ? null : value;
+
+
     }
 }
