@@ -7,27 +7,42 @@ A set of extensions to make working with some of the base class libraries easier
 
 ## Strings
 
-| `using NetCoreExtensions.Strings`                 | Equivalent to                                               |
-| ------------------------------------------------- | ----------------------------------------------------------- |
-| `value.IsNullOrEmpty()`                           | `string.IsNullOrEmpty(value)`                               |
-| `value.IsNotNullOrEmpty()`                        | `!string.IsNullOrEmpty(value)`                              |
-| `value.IsNullOrWhitespace()`                      | `string.IsNullOrWhitespace(value)`                          |
-| `value.IsNotNullOrWhitespace()`                   | `!string.IsNullOrWhitespace(value)`                         |
-| `values.Join(separator)`                          | `string.Join(separator, values)`                            |
-| `value.DefaultIfNullOrEmpty(defaultValue)`        | `string.IsNullOrEmpty(value) ? defaultValue : value`        |
-| `value.DefaultIfNullOrEmpty(callback)`            | `string.IsNullOrEmpty(value) ? callback() : value`          |
-| `value.DefaultIfNullOrWhitespace(defaultValue)`   | `string.IsNullOrWhitespace(value) ? defaultValue : value`   |
-| `value.DefaultIfNullOrWhitespace(callback)`       | `string.IsNullOrWhitespace(value) ? callback() : value`     |
+`using NetCoreExtensions.Strings`
+
+### Shortcuts to static string methods
+
+* `value.IsNullOrEmpty()`        
+* `value.IsNotNullOrEmpty()`     
+* `value.IsNullOrWhitespace()`   
+* `value.IsNotNullOrWhitespace()`
+* `values.Join(separator)`       
+
+### Whitespace/Empty defaults
+
+* `value.DefaultIfNullOrEmpty(defaultValue)`     
+* `value.DefaultIfNullOrEmpty(callback)`         
+* `value.DefaultIfNullOrWhitespace(defaultValue)`
+* `value.DefaultIfNullOrWhitespace(callback)`    
 
 ## Regular Expressions
 
-| `using NetCoreExtensions.Regex`                                 | Equivalent to                                                          |
-| --------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `value.Match(pattern)`                                          | `Regex.Match(value, pattern)`                                          |
-| `value.Match(pattern,options)`                                  | `Regex.Match(value, pattern,options)`                                  |
-| `if (value.TryMatch(pattern, out var match)) { .. }`            | `var match = Regex.Match(value,pattern); if (match) { .. }`            |
-| `if (value.TryMatch(pattern, options, out var match)) { .. }`   | `var match = Regex.Match(value,pattern, options); if (match) { .. }`   |
-| `foreach (var match in value.Matches(pattern)) { .. } `         | `foreach (Match match in Regex.Matches(value, pattern)) { .. } `       |
+`using NetCoreExtensions.Regex`
+
+### Shortcuts to static methods
+
+* `value.Match(pattern)` 
+* `value.Match(pattern, options)`
+
+### TryMatch 
+
+* `if (value.TryMatch(pattern, out var match)) { .. }` 
+* `if (value.TryMatch(pattern, options, out var match)) { .. }`  
+
+### Typed Enumeration of Match results
+
+No more explicit casting to `Match`!
+
+* `foreach (var match in value.Matches(pattern)) { .. } `
 
 ## Hashing
 
@@ -39,22 +54,29 @@ A set of extensions to make working with some of the base class libraries easier
 
 ## Date/Time
 
-| `using NetCoreExtensions.Regex`   | Equivalent to                         |
-| --------------------------------- | ------------------------------------- |
-| `42.Milliseconds()`               | `TimeSpan.FromMilliseconds(45)`       |
-| `42.Seconds()`                    | `TimeSpan.FromSeconds(45)`            |
-| `42.Minutes()`                    | `TimeSpan.FromMinutes(45)`            |
-| `42.Hours()`                      | `TimeSpan.FromHours(45)`              |
-| `42.Days()`                       | `TimeSpan.FromDays(45)`               |
-| `42.Ticks()`                      | `TimeSpan.FromTicks(45)`              |
+`using NetCoreExtensions.DateTime`
 
- * `TimeSpan.From` aliases work with `int`, `long` or `double`.
+### TimeSpan.FromXXX() aliases
+
+These work with `int`, `long` or `double`.
+
+* `42.Milliseconds()`
+* `42.Seconds()`     
+* `42.Minutes()`     
+* `42.Hours()`       
+* `42.Days()`        
+* `42.Ticks()` 
+
 
 ## Enum
 
-| `using NetCoreExtensions.Enum`        | Equivalent to                         |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `MyEnum.Val.GetName()`                | `Enum.GetName(typeof(MyEnum), MyEnum.Val)`                                                     |
+`using NetCoreExtensions.Enum`
+
+### String conversion
+
+* `MyEnum.Val1.GetName()`
+
+
 
 
 ## License
