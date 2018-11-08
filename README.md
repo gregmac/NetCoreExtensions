@@ -72,12 +72,16 @@ These work with `int`, `long` or `double`.
 
 `using NetCoreExtensions.Enum`
 
-### String conversion
+### Get Names
 
 * `MyEnum.Val1.GetName()`
 
+### String/Integer conversion
 
-
+* `42.ToEnum<MyEnum>()` returns `Nullable<MyEnum>(null)` if invalid
+* `42.ToEnum(defaultValue)` returns `defaultValue` if invalid
+* `"Val1".ToEnum<MyEnum>()` returns `Nullable<MyEnum>` if invalid
+* `"Val1".ToEnum(defaultValue)` returns `defaultValue` if invalid
 
 ## License
 
