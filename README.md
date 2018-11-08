@@ -50,6 +50,12 @@ A set of extensions to make working with some of the base class libraries easier
 
  * `TimeSpan.From` aliases work with `int`, `long` or `double`.
 
+## Enum
+
+| `using NetCoreExtensions.Enum`        | Equivalent to                         |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `MyEnum.Val.GetName()`                | `Enum.GetName(typeof(MyEnum), MyEnum.Val)`                                                     |
+
 
 ## License
 
