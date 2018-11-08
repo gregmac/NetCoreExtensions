@@ -1,5 +1,6 @@
-using Xunit;
 using NetCoreExtensions.Strings;
+using Shouldly;
+using Xunit;
 
 namespace NetCoreExtensions.Tests
 {
@@ -12,8 +13,8 @@ namespace NetCoreExtensions.Tests
         [InlineData("NotEmpty", false)]
         public void IsNullOrEmpty(string testValue, bool expected)
         {
-            Assert.Equal(testValue.IsNullOrEmpty(), expected);
-            Assert.Equal(testValue.IsNotNullOrEmpty(), !expected);
+            testValue.IsNullOrEmpty().ShouldBe(expected);
+            testValue.IsNotNullOrEmpty().ShouldNotBe(expected);
         }
         
         
@@ -25,54 +26,78 @@ namespace NetCoreExtensions.Tests
         [InlineData("NotEmpty", false)]
         public void IsNullOrWhiteSpace(string testValue, bool expected)
         {
-            Assert.Equal(testValue.IsNullOrWhiteSpace(), expected);
-            Assert.Equal(testValue.IsNotNullOrWhiteSpace(), !expected);
+            testValue.IsNullOrWhiteSpace().ShouldBe(expected);
+            testValue.IsNotNullOrWhiteSpace().ShouldNotBe(expected);
         }
 
-        [Fact]
-        public void Join()
+        [Theory]
+        [InlineData(new object[] { 42, 43, 44 }, ",", "42,43,44")]
+        [InlineData(new object[] { "a", "b", "c" }, "**", "a**b**c")]
+        public void Join(object[] input, string separator, string expected)
         {
-            Assert.Equal("42,43,44", new[] {42, 43, 44}.Join(","));
-            Assert.Equal("a**b**c", new[] {"a", "b", "c"}.Join("**"));
+            input.Join(separator).ShouldBe(expected);
         }
 
-        [Fact]
-        public void DefaultIfNullOrEmpty_string()
+        [Theory]
+        [InlineData("abc", "default", false)]
+        [InlineData(" ", "default", false)]
+        [InlineData("", "default", true)]
+        [InlineData(null, "default", true)]
+        public void DefaultIfNullOrEmpty_string(string input, string defaultValue, bool expectedDefault)
         {
-            Assert.Equal("abc", "abc".DefaultIfNullOrEmpty("default"));
-            Assert.Equal(" ", " ".DefaultIfNullOrEmpty("default"));
-            Assert.Equal("default", "".DefaultIfNullOrEmpty("default"));
-            Assert.Equal("default", ((string)null).DefaultIfNullOrEmpty("default"));
+            input.DefaultIfNullOrEmpty(defaultValue)
+                .ShouldBe(expectedDefault ? defaultValue : input);
         }
         
-        [Fact]
-        public void DefaultIfNullOrEmpty_callback()
+        [Theory]
+        [InlineData("abc", "default", false)]
+        [InlineData(" ", "default", false)]
+        [InlineData("", "default", true)]
+        [InlineData(null, "default", true)]
+        public void DefaultIfNullOrEmpty_callback(string input, string defaultValue, bool expectedDefault)
         {
-            var i = 0;
-            Assert.Equal("abc", "abc".DefaultIfNullOrEmpty(() => (i++).ToString()));
-            Assert.Equal(" ", " ".DefaultIfNullOrEmpty(() => (i++).ToString()));
-            Assert.Equal("0", "".DefaultIfNullOrEmpty(() => (i++).ToString()));
-            Assert.Equal("1", ((string)null).DefaultIfNullOrEmpty(() => (i++).ToString()));
-            Assert.Equal(2, i);
+            var callbackCalled = false;
+            input
+                .DefaultIfNullOrEmpty(() =>
+                {
+                    callbackCalled = true;
+                    return defaultValue;
+                })
+                .ShouldBe(expectedDefault ? defaultValue : input);
+            // if default is expected, callback should have been invoked
+            callbackCalled.ShouldBe(expectedDefault);
         }
-        
-        [Fact]
-        public void DefaultIfNullOrWhitespace_string()
+
+
+        [Theory]
+        [InlineData("abc", "default", false)]
+        [InlineData(" ", "default", true)]
+        [InlineData("", "default", true)]
+        [InlineData(null, "default", true)]
+        public void DefaultIfNullOrWhitespace_string(string input, string defaultValue, bool expectedDefault)
         {
-            Assert.Equal("abc", "abc".DefaultIfNullOrWhitespace("default"));
-            Assert.Equal("default", " ".DefaultIfNullOrWhitespace("default"));
-            Assert.Equal("default", "".DefaultIfNullOrWhitespace("default"));
-            Assert.Equal("default", ((string)null).DefaultIfNullOrWhitespace("default"));
+            input.DefaultIfNullOrWhitespace(defaultValue)
+                .ShouldBe(expectedDefault ? defaultValue : input);
         }
-        [Fact]
-        public void DefaultIfNullOrWhitespace_callback()
+
+        [Theory]
+        [InlineData("abc", "default", false)]
+        [InlineData(" ", "default", true)]
+        [InlineData("", "default", true)]
+        [InlineData(null, "default", true)]
+        public void DefaultIfNullOrWhitespace_callback(string input, string defaultValue, bool expectedDefault)
         {
-            var i = 0;
-            Assert.Equal("abc", "abc".DefaultIfNullOrWhitespace(() => (i++).ToString()));
-            Assert.Equal("0", " ".DefaultIfNullOrWhitespace(() => (i++).ToString()));
-            Assert.Equal("1", "".DefaultIfNullOrWhitespace(() => (i++).ToString()));
-            Assert.Equal("2", ((string)null).DefaultIfNullOrWhitespace(() => (i++).ToString()));
-            Assert.Equal(3, i);
+            var callbackCalled = false;
+            input
+                .DefaultIfNullOrWhitespace(() =>
+                {
+                    callbackCalled = true;
+                    return defaultValue;
+                })
+                .ShouldBe(expectedDefault ? defaultValue : input);
+            // if default is expected, callback should have been invoked
+            callbackCalled.ShouldBe(expectedDefault);
         }
+
     }
 }

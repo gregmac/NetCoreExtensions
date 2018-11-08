@@ -1,4 +1,5 @@
 ﻿using NetCoreExtensions.Enum;
+using Shouldly;
 using Xunit;
 
 namespace NetCoreExtensions.Tests
@@ -18,7 +19,7 @@ namespace NetCoreExtensions.Tests
         [InlineData(TestEnum.Value42, "Value42")]
         public void GetName(TestEnum testValue, string expected)
         {
-            Assert.Equal(testValue.GetName(), expected);
+            testValue.GetName().ShouldBe(expected);
         }
 
     }
