@@ -11,4 +11,7 @@
         <PackageTags>extensions regex string core</PackageTags>
         <LangVersion>7.3</LangVersion>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <DefineConstants />
+    </PropertyGroup>
 </Project>
