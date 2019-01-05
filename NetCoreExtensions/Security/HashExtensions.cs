@@ -4,6 +4,9 @@ using System.Text;
 
 namespace NetCoreExtensions.Security
 {
+    /// <summary>
+    /// Extensions for doing one-way hashing functions (SHA)
+    /// </summary>
     public static class HashExtensions
     {
         /// <summary>

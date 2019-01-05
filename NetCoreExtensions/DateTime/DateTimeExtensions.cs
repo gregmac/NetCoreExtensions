@@ -2,6 +2,9 @@ using System;
 
 namespace NetCoreExtensions.DateTime
 {
+    /// <summary>
+    /// Date, Time and TimeSpan related extensions.
+    /// </summary>
     public static class DateTimeExtensions
     {
         /// <inheritdoc cref="TimeSpan.FromMilliseconds"/>

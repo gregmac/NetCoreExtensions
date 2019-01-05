@@ -1,7 +1,8 @@
-﻿using System;
-
-namespace NetCoreExtensions.Enum
+﻿namespace NetCoreExtensions.Enum
 {
+    /// <summary>
+    /// Enum related methods.
+    /// </summary>
     public static class EnumExtensions
     {
         /// <summary>
@@ -43,8 +44,6 @@ namespace NetCoreExtensions.Enum
         /// </summary>
         /// <typeparam name="T">The type of enum to convert</typeparam>
         /// <param name="value">The string value</param>
-        /// <param name="ignoreCase">If case should be ignored</param>
-        /// <param name="defaultValue">The default value to use if the string is invalid</param>
         /// <returns></returns>
         public static T? ToEnum<T>(this string value) where T : struct, System.Enum
             => int.TryParse(value, out var intValue)
@@ -60,7 +59,6 @@ namespace NetCoreExtensions.Enum
         /// <typeparam name="T">The type of enum to convert</typeparam>
         /// <param name="value">The string value</param>
         /// <param name="ignoreCase">If case should be ignored</param>
-        /// <param name="defaultValue">The default value to use if the string is invalid</param>
         /// <returns></returns>
         public static T? ToEnum<T>(this string value, bool ignoreCase) where T : struct, System.Enum
             => int.TryParse(value, out var intValue)

@@ -1,8 +1,10 @@
-using System;
 using System.Collections.Generic;
 
 namespace NetCoreExtensions.Strings
 {
+    /// <summary>
+    /// String related methods
+    /// </summary>
     public static class StringExtensions
     {
         /// <summary>
