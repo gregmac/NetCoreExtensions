@@ -48,9 +48,9 @@ No more explicit casting to `Match`!
 
 `using NetCoreExtensions.Security`
 
-* `Sha1()`, `Sha256()`, `Sha384()`, `Sha512()` methods for `string` and `byte[]`
+* `Sha1()`, `Sha256()`, `Sha384()`, `Sha512()`, `HmacSha1()`, `HmacSha256()`, `HmacSha384()`, `HmacSha512()`methods for `string` and `byte[]`
 * Return unix-style checksums, eg: `"b444ac06613fc8d63795be9ad0beaf55011936ac"`
-* Defaults to `Encoding.UTF8` but can be overridden
+* Defaults to `Encoding.UTF8` for `string` inputs but can be overridden
 
 ## Date/Time
 
