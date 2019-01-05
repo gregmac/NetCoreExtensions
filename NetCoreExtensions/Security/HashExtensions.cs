@@ -17,7 +17,7 @@ namespace NetCoreExtensions.Security
         /// <returns>Unix format hex string of the hash</returns>
         public static HashResult Sha1(this string input)
             => Sha1(input, Encoding.UTF8);
-        
+
         /// <summary>
         /// Compute a SHA1 hash for the input data. Output is a string in unix format
         /// (all hex, lowercase, no special characters).
@@ -27,7 +27,7 @@ namespace NetCoreExtensions.Security
         /// <returns>Unix format hex string of the hash</returns>
         public static HashResult Sha1(this string input, Encoding encoding)
             => Sha1(encoding.GetBytes(input));
-        
+
         /// <summary>
         /// Compute a SHA1 hash for the input data. Output is a string in unix format
         /// (all hex, lowercase, no special characters).
@@ -75,7 +75,6 @@ namespace NetCoreExtensions.Security
             }
         }
 
-        
         /// <summary>
         /// Compute a SHA384 hash for the input data. Output is a string in unix format
         /// (all hex, lowercase, no special characters).
@@ -141,6 +140,5 @@ namespace NetCoreExtensions.Security
                 return new HashResult(hash.ComputeHash(input));
             }
         }
-
     }
 }

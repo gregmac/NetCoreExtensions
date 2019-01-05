@@ -46,7 +46,7 @@ namespace NetCoreExtensions.Tests
                 .ToString()
                 .ShouldBe("1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014");
         }
-        
+
         [Fact]
         public void Sha256_String_ASCII()
         {
@@ -54,7 +54,7 @@ namespace NetCoreExtensions.Tests
                 .ToString()
                 .ShouldBe("60303ae22b998861bce3b28f33eec1be758a213c86c93c076dbe9f558c11c752");
         }
-        
+
         [Fact]
         public void Sha384_ByteArray()
         {
@@ -70,7 +70,7 @@ namespace NetCoreExtensions.Tests
                 .ToString()
                 .ShouldBe("44accf4a6221d01de386da6d2c48b0fae47930c80d2371cd669bff5235c6c1a5ce47f863a1379829f8602822f96410c2");
         }
-        
+
         [Fact]
         public void Sha384_String_ASCII()
         {
@@ -78,7 +78,7 @@ namespace NetCoreExtensions.Tests
                 .ToString()
                 .ShouldBe("96fd02f78758ae9d418feb871df005460fada2b6a0a83b731842fcf5ce717490413423a18e8806bfde10f132d153367b");
         }
-        
+
         [Fact]
         public void Sha512_ByteArray()
         {

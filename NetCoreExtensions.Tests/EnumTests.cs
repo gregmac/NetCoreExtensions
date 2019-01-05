@@ -6,7 +6,6 @@ namespace NetCoreExtensions.Tests
 {
     public class EnumTests
     {
-
         public enum TestEnum
         {
             Value0 = 0,
@@ -21,7 +20,6 @@ namespace NetCoreExtensions.Tests
         {
             testValue.GetName().ShouldBe(expected);
         }
-
 
         [Theory]
         [InlineData(0, TestEnum.Value0)]
@@ -40,7 +38,6 @@ namespace NetCoreExtensions.Tests
         {
             input.ToEnum(defaultValue).ShouldBe(expected);
         }
-
 
         [Theory]
         [InlineData("Value0", TestEnum.Value0)]
@@ -63,7 +60,6 @@ namespace NetCoreExtensions.Tests
             input.ToEnum<TestEnum>(ignoreCase: true).ShouldBe(expected);
         }
 
-
         [Theory]
         [InlineData("Value0", TestEnum.Value42, TestEnum.Value0)]
         [InlineData("Value5", TestEnum.Value42, TestEnum.Value42)]
@@ -84,6 +80,5 @@ namespace NetCoreExtensions.Tests
         {
             input.ToEnum(ignoreCase: true, defaultValue).ShouldBe(expected);
         }
-
     }
 }

@@ -16,7 +16,7 @@ namespace NetCoreExtensions.Tests
             46.Days().TotalDays.ShouldBe(46);
             47.Ticks().Ticks.ShouldBe(47);
         }
-        
+
         [Fact]
         public void TimeSpanConversions_Double()
         {
@@ -27,8 +27,7 @@ namespace NetCoreExtensions.Tests
             46D.Days().TotalDays.ShouldBe(46D);
             // Note: Ticks doesn't support double
         }
-        
-        
+
         [Fact]
         public void TimeSpanConversions_Long()
         {
@@ -39,6 +38,5 @@ namespace NetCoreExtensions.Tests
             43L.Days().TotalDays.ShouldBe(43L);
             2147483655L.Ticks().Ticks.ShouldBe(2147483655L);
         }
-        
     }
 }

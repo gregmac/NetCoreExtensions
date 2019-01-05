@@ -16,7 +16,7 @@ namespace NetCoreExtensions.Strings
         /// <param name="value">The value to test</param>
         /// <returns>True if the value is null or empty</returns>
         public static bool IsNullOrEmpty(this string value) => string.IsNullOrEmpty(value);
-        
+
         /// <summary>
         /// Alias to !<see cref="string.IsNullOrEmpty">string.IsNullOrEmpty(value)</see>.
         /// </summary>
@@ -26,7 +26,7 @@ namespace NetCoreExtensions.Strings
         /// <param name="value">The value to test</param>
         /// <returns>True if the value is not null or empty</returns>
         public static bool IsNotNullOrEmpty(this string value) => !string.IsNullOrEmpty(value);
-        
+
         /// <summary>
         /// Alias to <see cref="string.IsNullOrWhiteSpace">string.IsNullOrWhiteSpace(value)</see>.
         /// </summary>
@@ -36,7 +36,7 @@ namespace NetCoreExtensions.Strings
         /// <param name="value">The value to test</param>
         /// <returns>True if the value is null or whitespace</returns>
         public static bool IsNullOrWhiteSpace(this string value) => string.IsNullOrWhiteSpace(value);
-        
+
         /// <summary>
         /// Alias to !<see cref="string.IsNullOrWhiteSpace">string.IsNullOrWhiteSpace(value)</see>.
         /// </summary>
@@ -57,12 +57,13 @@ namespace NetCoreExtensions.Strings
         public static string Join<T>(this IEnumerable<T> values, string separator) => string.Join(separator, values);
 
         /// <summary>
-        /// Returns null if a string is empty, otherwise returns the original string.
-        /// 
+        /// <para>Returns null if a string is empty, otherwise returns the original string.</para>
+        /// <para>
         /// Allows easily assigning default values for empty strings, eg:
         /// <code>
         /// myvalue.EmptyToNull() ?? "default"
         /// </code>
+        /// </para>
         /// </summary>
         /// <param name="value">The value to test</param>
         /// <returns></returns>
@@ -70,18 +71,17 @@ namespace NetCoreExtensions.Strings
             => string.IsNullOrEmpty(value) ? null : value;
 
         /// <summary>
-        /// Returns null if a string is whitespace, otherwise returns the original string.
-        /// 
+        /// <para>Returns null if a string is whitespace, otherwise returns the original string.</para>
+        /// <para>
         /// Allows easily assigning default values for empty strings, eg:
         /// <code>
         /// myvalue.WhitespaceToNull() ?? "default"
         /// </code>
+        /// </para>
         /// </summary>
         /// <param name="value">The value to test</param>
         /// <returns></returns>
         public static string WhiteSpaceToNull(this string value)
             => string.IsNullOrWhiteSpace(value) ? null : value;
-
-
     }
 }

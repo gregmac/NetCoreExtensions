@@ -19,21 +19,21 @@ namespace NetCoreExtensions.Tests
         {
             "test".Match("^T", RegexOptions.IgnoreCase).Value.ShouldBe("t");
         }
-        
+
         [Fact]
         public void TryMatch()
         {
             "test".TryMatch("^t", out var match).ShouldBeTrue();
             match.Value.ShouldBe("t");
         }
-        
+
         [Fact]
         public void TryMatch_Options()
         {
             "test".TryMatch("^T", RegexOptions.IgnoreCase, out var match).ShouldBeTrue();
             match.Value.ShouldBe("t");
         }
-        
+
         [Fact]
         public void Matches()
         {
@@ -41,8 +41,7 @@ namespace NetCoreExtensions.Tests
             matches.ShouldAllBe(x => x.Value.StartsWith("a"));
             matches.Count().ShouldBe(4);
         }
-        
-        
+
         [Fact]
         public void Matches_Options()
         {

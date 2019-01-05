@@ -16,8 +16,7 @@ namespace NetCoreExtensions.Tests
             testValue.IsNullOrEmpty().ShouldBe(expected);
             testValue.IsNotNullOrEmpty().ShouldNotBe(expected);
         }
-        
-        
+
         [Theory]
         [InlineData(null, true)]
         [InlineData("", true)]
@@ -61,6 +60,5 @@ namespace NetCoreExtensions.Tests
             input.WhiteSpaceToNull()
                 .ShouldBe(expectedNull ? null : input);
         }
-
     }
 }

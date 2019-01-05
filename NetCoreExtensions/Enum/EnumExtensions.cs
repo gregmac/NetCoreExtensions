@@ -11,9 +11,8 @@
         /// <typeparam name="T">The type of enum</typeparam>
         /// <param name="enumVal">The enum value</param>
         /// <returns>The string representation of the enum</returns>
-        public static string GetName<T>(this T enumVal) where T : struct, System.Enum 
+        public static string GetName<T>(this T enumVal) where T : struct, System.Enum
             => System.Enum.GetName(typeof(T), enumVal);
-
 
         /// <summary>
         /// Convert a string to an Enum value (nullable) of a specified type,
@@ -37,10 +36,11 @@
             => System.Enum.IsDefined(typeof(T), value) ? (T)System.Enum.ToObject(typeof(T), value) : defaultValue;
 
         /// <summary>
+        /// <para>
         /// Convert a string to an Enum value (nullable) of a specified type,
         /// or return null if not found.
-        /// 
-        /// The string can contain either a string or numeric value.
+        /// </para>
+        /// <para>The string can contain either a string or numeric value.</para>
         /// </summary>
         /// <typeparam name="T">The type of enum to convert</typeparam>
         /// <param name="value">The string value</param>
@@ -51,10 +51,11 @@
                 : System.Enum.TryParse<T>(value, out var result) ? (T?)result : null;
 
         /// <summary>
+        /// <para>
         /// Convert a string to an Enum value (nullable) of a specified type,
         /// or return null if not found.
-        /// 
-        /// The string can contain either a string or numeric value.
+        /// </para>
+        /// <para>The string can contain either a string or numeric value.</para>
         /// </summary>
         /// <typeparam name="T">The type of enum to convert</typeparam>
         /// <param name="value">The string value</param>
@@ -64,7 +65,6 @@
             => int.TryParse(value, out var intValue)
                 ? intValue.ToEnum<T>()
                 : System.Enum.TryParse<T>(value, ignoreCase, out var result) ? (T?)result : null;
-
 
         /// <summary>
         /// Convert an integer value to an Enum of a specified type,
@@ -80,10 +80,11 @@
                 : System.Enum.TryParse<T>(value, out var result) ? result : defaultValue;
 
         /// <summary>
+        /// <para>
         /// Convert a string to an Enum value of a specified type,
         /// with fallback to a default if the string is invalid.
-        /// 
-        /// The string can contain either a string or numeric value.
+        /// </para>
+        /// <para>The string can contain either a string or numeric value.</para>
         /// </summary>
         /// <typeparam name="T">The type of enum to convert</typeparam>
         /// <param name="value">The string value</param>
@@ -94,6 +95,5 @@
             => int.TryParse(value, out var intValue)
                 ? intValue.ToEnum(defaultValue)
                 : System.Enum.TryParse<T>(value, ignoreCase, out var result) ? result : defaultValue;
-
     }
 }

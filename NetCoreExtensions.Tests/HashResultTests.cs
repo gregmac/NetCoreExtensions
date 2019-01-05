@@ -6,7 +6,7 @@ namespace NetCoreExtensions.Tests
 {
     public class HashResultTests
     {
-        private static byte[] TestData = new byte[] { 0, 31, 242, 171, 205, 239, 0 };
+        private static readonly byte[] TestData = new byte[] { 0, 31, 242, 171, 205, 239, 0 };
 
         [Fact]
         public void HashResult_ToString()
@@ -14,6 +14,7 @@ namespace NetCoreExtensions.Tests
             new HashResult(TestData).ToString()
                 .ShouldBe("001ff2abcdef00");
         }
+
         [Fact]
         public void HashResult_ToString_Lowercase()
         {
