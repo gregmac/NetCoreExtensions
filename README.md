@@ -44,6 +44,19 @@ No more explicit casting to `Match`!
 
 * `foreach (var match in value.Matches(pattern)) { .. } `
 
+## Tasks
+
+Wrap async methods or tasks that don't provide timeout or cancelation support.
+
+```
+try { 
+    var result = await SomethingAsync().TimeoutAfter(10.Seconds, cancellationToken);
+} catch (TaskCancelationException) {
+    Console.WriteLine("Execution was canceled");
+} catch (TaskTimeoutException ex) {
+    Console.WriteLine($"Task timed out after {ex.Timeout}");
+}
+
 ## Hashing
 
 `using NetCoreExtensions.Security`
