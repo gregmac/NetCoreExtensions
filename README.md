@@ -56,6 +56,7 @@ try {
 } catch (TaskTimeoutException ex) {
     Console.WriteLine($"Task timed out after {ex.Timeout}");
 }
+```
 
 ## Hashing
 
