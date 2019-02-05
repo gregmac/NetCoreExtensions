@@ -33,16 +33,37 @@ Example: `(" ".WhiteSpaceToNull() ?? "default") == "default"`
 * `value.Match(pattern)` 
 * `value.Match(pattern, options)`
 
+```
+var name = "My Name";
+if (name.Match("^my", RegexOptions.IgnoreCase)) {
+    // ...
+}
+```
+
+
 ### TryMatch 
 
 * `if (value.TryMatch(pattern, out var match)) { .. }` 
 * `if (value.TryMatch(pattern, options, out var match)) { .. }`  
 
+```
+var name = "My name is foo";
+if (name.Match("my name is (?<name>[A-Za-z ]+)", out var match)) {
+    Console.WriteLine(match.Groups["name"].Value); // displays "foo"
+}
+```
+
+
 ### Typed Enumeration of Match results
 
-No more explicit casting to `Match`!
+When using `Matches`, returns a `IEnumerable<Match>` instead of `MatchCollection`,
+ which means there is no need to do an explicit cast to `Match`.
 
-* `foreach (var match in value.Matches(pattern)) { .. } `
+```
+foreach (var match in value.Matches(pattern)) { 
+    Console.WriteLine(match.Value); 
+}
+```
 
 ## Tasks
 
