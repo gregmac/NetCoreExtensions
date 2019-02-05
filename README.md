@@ -4,6 +4,17 @@ A set of extensions to make working with some of the base class libraries easier
 
 [![Build status](https://ci.appveyor.com/api/projects/status/gxfnvkayfbrmllt0/branch/master?svg=true)](https://ci.appveyor.com/project/gregmac/netcoreextensions/branch/master) [![NuGet](https://img.shields.io/nuget/v/NetCoreExtensions.svg?maxAge=3600)](https://www.nuget.org/packages/NetCoreExtensions/)
 
+* [Documentation](#documentation)
+  * [Strings](#strings)
+  * [Regular Expressions](#regular-expressions)
+  * [Tasks](#tasks)
+  * [Hashing](#hashing)
+  * [Date/Time](#datetime)
+  * [Enums](#enums)
+* [License](#license)
+
+
+# Documentation
 
 ## Strings
 
@@ -110,7 +121,7 @@ These work with `int`, `long` or `double`.
 * `42.Ticks()` 
 
 
-## Enum
+## Enums
 
 `using NetCoreExtensions.Enum`
 
@@ -125,6 +136,6 @@ These work with `int`, `long` or `double`.
 * `"Val1".ToEnum<MyEnum>()` returns `Nullable<MyEnum>` if invalid
 * `"Val1".ToEnum(defaultValue)` returns `defaultValue` if invalid
 
-## License
+# License
 
 This project is licensed under the [MIT License](LICENSE.md).
