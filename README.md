@@ -46,11 +46,18 @@ No more explicit casting to `Match`!
 
 ## Tasks
 
+
+### Task Timeout
+
 Wrap async methods or tasks that don't provide timeout or cancelation support.
 
 ```
 try { 
-    var result = await SomethingAsync().TimeoutAfter(10.Seconds, cancellationToken);
+
+    var result1 = await SomethingAsync().TimeoutAfter(100);
+
+    var result2 = await SomethingElseAsync().TimeoutAfter(1200, cancellationToken);
+
 } catch (TaskCancelationException) {
     Console.WriteLine("Execution was canceled");
 } catch (TaskTimeoutException ex) {
